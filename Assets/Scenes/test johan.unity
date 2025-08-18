@@ -774,7 +774,7 @@ MonoBehaviour:
   height: 20
   distance: 5
   cameraLimits: 10
-  smoothSpeed: 2
+  smoothSpeed: 4
   playerControl: {fileID: 0}
 --- !u!1 &355193847
 GameObject:
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 431259564}
   speed: 10
-  sprintSpeed: 20
+  sprintSpeed: 15
   jumpForce: 10
   raycast: 0
   hp: 0
