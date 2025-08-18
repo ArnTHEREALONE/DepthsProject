@@ -7,6 +7,7 @@ public class CameraControl : MonoBehaviour
     public float height = 15f;
     public float distance = 5f;
     public float cameraLimits = 10f;
+    public float smoothSpeed = 2f;
     private bool lookAtPlayer = false;
     private bool heightIsFixed = false;
     public PlayerControl playerControl;
@@ -78,7 +79,7 @@ public class CameraControl : MonoBehaviour
 
             targetPosition += offset;
 
-            transform.position = targetPosition;
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * smoothSpeed);
 
         }
         else
