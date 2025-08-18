@@ -1,4 +1,4 @@
-# Unity - fichiers et dossiers à ignorer
+# Dossiers Unity à ignorer (générés automatiquement)
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -6,6 +6,7 @@
 [Bb]uilds/
 [Ll]ogs/
 [Mm]emoryCaptures/
+UserSettings/
 
 # Cache et artefacts
 sysinfo.txt
@@ -27,7 +28,7 @@ sysinfo.txt
 .DS_Store
 Thumbs.db
 
-# Autres
+# Sorties de build
 *.apk
 *.aab
 *.app
