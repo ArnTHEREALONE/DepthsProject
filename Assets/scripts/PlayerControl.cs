@@ -57,11 +57,10 @@ public class PlayerControl : MonoBehaviour
             velocity.y = jumpForce;
             rb.linearVelocity = velocity;
 
-            grounded = false; // Set grounded to false after jumping
-            isJumping = true; // Set isJumping to true
-            Debug.Log("Jumping");
+            grounded = false;
+            isJumping = true;
 
-            jumpBufferCounter = 0; // reset
+            jumpBufferCounter = 0;
         }
     }
 }
