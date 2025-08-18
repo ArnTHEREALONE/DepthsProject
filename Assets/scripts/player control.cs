@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed, jumpForce, raycast, hp, gold;
+    public float speed,sprintSpeed, jumpForce, raycast, hp, gold;
     public bool grounded, isJumping;
     public float jumpBufferTime = 0.1f;
     private float jumpBufferCounter;
@@ -25,7 +25,6 @@ public class PlayerControl : MonoBehaviour
     }
     private void Update()
     {
-        // Saut condition ----------------------------------------------------------------------------------------------------------
         grounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
 
 
@@ -40,14 +39,11 @@ public class PlayerControl : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        // Mouvement ---------------------------------------------------------------------------------------------------
         Vector3 moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         Vector3 currentVelocity = rb.linearVelocity;
-        Vector3 newVelocity = new Vector3(moveInput.x * speed, currentVelocity.y, moveInput.z * speed);
+        float newSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : speed;
+        Vector3 newVelocity = new Vector3(moveInput.x * newSpeed, currentVelocity.y, moveInput.z * newSpeed);
         rb.linearVelocity = newVelocity;
-
-
-        // Rotation ------------------------------------------------------------------------------------------------------
         if (moveInput.sqrMagnitude > 0.01f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveInput);
@@ -55,7 +51,6 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }
 
-        // Saut ----------------------------------------------------------------------------------------------------------
         if (jumpBufferCounter > 0 && grounded)
         {
             Vector3 velocity = rb.linearVelocity;
