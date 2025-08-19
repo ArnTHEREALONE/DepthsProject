@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6fe9b8337b34be9ae220f3e21168da5, type: 3}
-  m_Name: Wolf
+  m_Script: {fileID: 11500000, guid: a59394f38b8e454ca93f60a89dcde29e, type: 3}
+  m_Name: boostAuto
   m_EditorClassIdentifier: 
-  enemyName: Wolf
-  monsterClass: 1
-  maxHealth: 10
-  damage: 10
-  defense: 1
-  speed: 10
-  critRate: 2
-  critDamage: 2
+  abilityName: Boost de l'auto
+  icon: {fileID: 0}
+  cooldown: 2
+  damageMultiplier: 1.5

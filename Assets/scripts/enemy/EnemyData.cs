@@ -4,6 +4,7 @@
 public class EnemyData : ScriptableObject
 {
     public string enemyName;
+    public string monsterClass;
     public float maxHealth;
     public float damage;
     public float defense;
