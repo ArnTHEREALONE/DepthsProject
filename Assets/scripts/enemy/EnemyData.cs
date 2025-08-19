@@ -3,6 +3,8 @@
 [CreateAssetMenu(fileName = "EnemyData", menuName = "ScriptableObjects/EnemyData")]
 public class EnemyData : ScriptableObject
 {
+    public GameObject prefab;
+    
     public string enemyName;
     public string monsterClass;
     public float maxHealth;

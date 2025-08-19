@@ -6,6 +6,7 @@ public class CharacterData : ScriptableObject
     [Header("Infos générales")]
     public string characterName;
     public Sprite portrait; // image UI
+    public GameObject prefab;
 
     [Header("Stats")]
     public float maxHealth;
