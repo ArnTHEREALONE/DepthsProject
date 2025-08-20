@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fe9b8337b34be9ae220f3e21168da5, type: 3}
   m_Name: Wolf
   m_EditorClassIdentifier: 
+  prefab: {fileID: 5881054023090064314, guid: fa9d5ceaaac514e438cb92a838a3b317, type: 3}
   enemyName: Wolf
   monsterClass: 1
   maxHealth: 10
