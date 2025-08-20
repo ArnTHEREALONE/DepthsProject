@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class BattleTrigger : MonoBehaviour
 {
     public Enemy enemy; // référence vers l'ennemi touché
-    public Transform player; // référence vers le joueur
     public float detectionRadius = 5f; // rayon de détection pour déclencher le combat
     private bool battleStarted = false; // pour éviter de déclencher plusieurs fois le combat
 
@@ -15,14 +15,17 @@ public class BattleTrigger : MonoBehaviour
     
     private void Update()
     {
-        if (battleStarted || player == null) return;
+        if (battleStarted) return;
 
-        float distance = Vector3.Distance(player.position, transform.position);
-
-        if (distance <= detectionRadius)
+        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius);
+        foreach (var collider in colliders)
         {
-            Debug.Log("Le joueur est entré dans le rayon de combat !");
-            StartBattle(enemy);
+            if (collider.CompareTag("Player"))
+            {
+                Debug.Log("Le joueur est entré dans le rayon de combat !");
+                StartBattle(enemy);
+                break;
+            }
         }
     }
 
@@ -39,6 +42,7 @@ public class BattleTrigger : MonoBehaviour
     {
         // On enregistre les infos du combat
         BattleData.enemyToFight = enemy.data; // on enregistre les stats de cet ennemi
+        BattleData.playerTeam = PlayerData.Instance.activeTeam.ToList(); // on enregistre l'équipe du joueur
 
         // Charger la scène de combat
         SceneManager.LoadScene("BattleScene");

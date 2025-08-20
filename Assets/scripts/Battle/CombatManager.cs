@@ -17,12 +17,20 @@ public class CombatManager : MonoBehaviour
         }
 
         // Charger l’équipe du joueur (depuis PlayerData)
-        var team = PlayerData.Instance.activeTeam;
-        for (int i = 0; i < ((ICollection<CharacterData>)team).Count; i++)
+        var team = BattleData.playerTeam;
+        int spawnCount = Mathf.Min(team.Count, playerSpawnPoints.Length);
+
+        for (int i = 0; i < spawnCount; i++)
         {
-            GameObject charPrefab = team[i].prefab;
-            Instantiate(charPrefab, playerSpawnPoints[i].position, Quaternion.identity);
-            Debug.Log("Perso chargé : " + team[i].characterName);
+            if (team[i] != null && team[i].prefab != null)
+            {
+                Instantiate(team[i].prefab, playerSpawnPoints[i].position, Quaternion.identity);
+                Debug.Log("Perso chargé : " + BattleData.playerTeam[i].characterName);
+            }
+            else
+            {
+                Debug.LogWarning($"⚠ Slot {i} vide ou prefab manquant !");
+            }
         }
     }
 }

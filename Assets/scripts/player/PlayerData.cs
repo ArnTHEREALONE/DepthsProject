@@ -13,7 +13,6 @@ public class PlayerData : MonoBehaviour
 
     [Header("Team active (3 slots fixes)")]
     public CharacterData[] activeTeam = new CharacterData[3]; // ← tableau au lieu de List
-
     private void Awake()
     {
         if (Instance == null)
