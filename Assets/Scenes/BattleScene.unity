@@ -4482,6 +4482,7 @@ GameObject:
   - component: {fileID: 931106658}
   - component: {fileID: 931106657}
   - component: {fileID: 931106660}
+  - component: {fileID: 931106660}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5965,6 +5966,7 @@ Transform:
   m_GameObject: {fileID: 1399159370}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
